@@ -1,10 +1,8 @@
 package com.sudoavi.rentabook
 
-import android.R.attr.password
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import android.text.InputType
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
@@ -17,6 +15,7 @@ class LoginPage : AppCompatActivity() {
     lateinit var Uemail : String
     lateinit var Upass : String
     private lateinit var auth : FirebaseAuth
+   var user =  FirebaseAuth.getInstance().currentUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
@@ -29,7 +28,7 @@ class LoginPage : AppCompatActivity() {
          var hide: Boolean = false
 
         CrAc.setOnClickListener {
-            startActivity(Intent(this,verify_email::class.java))
+            startActivity(Intent(this,selectpass::class.java))
         }
 
         eye_btn.setOnClickListener {
@@ -53,8 +52,18 @@ class LoginPage : AppCompatActivity() {
                 auth = FirebaseAuth.getInstance()
                 auth.signInWithEmailAndPassword(Uemail, Upass)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this,Home::class.java))
+//                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                        user = FirebaseAuth.getInstance().currentUser
+                        if (user!!.isEmailVerified){
+                            startActivity(Intent(this,Home::class.java))
+                        }
+                        else{
+                            user!!.sendEmailVerification().addOnCompleteListener {
+                            Toast.makeText(this, "Verification mail sent to your mail", Toast.LENGTH_SHORT).show()
+                            }
+                                .addOnFailureListener {
+                                    Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show() }
+                        }
                     }
                     .addOnFailureListener {
                         Toast.makeText(this, "Some thing went wrong !!", Toast.LENGTH_SHORT).show()

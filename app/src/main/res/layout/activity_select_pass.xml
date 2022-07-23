@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_animation"
     android:id="@+id/sel_pass_bg"
-    tools:context=".select_pass">
+    tools:context=".selectpass">
 
 
 
@@ -16,7 +16,43 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="100dp"
         android:orientation="horizontal" />
+
+    <EditText
+        android:id="@+id/Usrname"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:inputType="text"
+        android:hint="@string/name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintBottom_toTopOf="@id/center_line"
+        app:layout_constraintEnd_toEndOf="@id/center_line"
+        app:layout_constraintStart_toStartOf="@id/center_line"
+        android:layout_marginBottom="10dp"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/UsrEmail"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:paddingHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintTop_toBottomOf="@id/center_line"
+        app:layout_constraintStart_toStartOf="@id/center_line"
+        app:layout_constraintEnd_toEndOf="@id/center_line"
+        android:autofillHints="" />
+
 
     <ImageView
         android:id="@+id/eye_pass1"
@@ -43,11 +79,11 @@
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingHorizontal="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:paddingVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/center_line"
-        app:layout_constraintTop_toBottomOf="@+id/center_line"
+        app:layout_constraintTop_toBottomOf="@+id/UsrEmail"
         android:autofillHints="" />
 
 
@@ -83,8 +119,62 @@
         app:layout_constraintTop_toBottomOf="@+id/pass1"
         android:autofillHints="" />
 
+    <TextView
+        android:id="@+id/user_dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pass2"
+        android:layout_marginTop="10dp"
+        android:text="DOB : dd-mm-yyyy"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+
     <Button
-        android:id="@+id/confirm_password"
+        android:id="@+id/select_date_s"
+        android:background="@drawable/simple_round_btn"
+        android:text="Set DOB"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/user_dob"
+        app:layout_constraintStart_toStartOf="@id/center_line"
+        app:layout_constraintEnd_toEndOf="@id/center_line"/>
+
+    <DatePicker
+        android:id="@+id/date_picker_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_theme"
+        android:datePickerMode="calendar"
+        android:elevation="6dp"
+        android:headerBackground="@drawable/btn_orange"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/done_select_date_s"
+        app:layout_constraintTop_toTopOf="@id/center_line" />
+
+
+    <Button
+        android:id="@+id/done_select_date_s"
+        android:background="@drawable/simple_round_btn"
+        android:text="Done"
+        android:layout_width="100dp"
+        app:layout_constraintTop_toBottomOf="@id/date_picker_s"
+        android:layout_height="45dp"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/date_picker_s"
+        app:layout_constraintStart_toStartOf="@+id/date_picker_s"
+        app:layout_constraintBottom_toBottomOf="@id/center_line"/>
+
+
+    <Button
+        android:id="@+id/submit_btn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="35dp"
