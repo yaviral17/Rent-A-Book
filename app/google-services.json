@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "816621383689",
+    "project_id": "rentabook-6e3d1",
+    "storage_bucket": "rentabook-6e3d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816621383689:android:ef9dc1e1bcf982a98008d8",
+        "android_client_info": {
+          "package_name": "com.sudoavi.rentabook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816621383689-nkdvp0i5t4bpnpkpsr6mb5s9fm633qm7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sudoavi.rentabook",
+            "certificate_hash": "af76967d9aab279e5abd5cd24f3d857fc153b7f4"
+          }
+        },
+        {
+          "client_id": "816621383689-hcstbp0mv3ib0819tgqfkmnpehdksup3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwyRNxzawSYmRjjJowi5PzU5r5QtBxyYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816621383689-hcstbp0mv3ib0819tgqfkmnpehdksup3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
