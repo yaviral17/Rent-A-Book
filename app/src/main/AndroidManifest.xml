@@ -27,7 +27,7 @@
         <activity
             android:name=".Home"
             android:exported="false"
-            android:theme="@style/Theme.Noaction_bar" />
+            android:theme="@style/Theme.forbottomnav" />
         <activity
             android:name=".name_dob"
             android:exported="false"

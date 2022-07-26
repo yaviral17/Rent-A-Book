@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+
+    <FrameLayout
+        android:id="@+id/fragement_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:fabCradleMargin="8dp"
+        android:background="?android:windowBackground"
+        app:fabCradleRoundedCornerRadius="5dp"
+        app:fabCradleVerticalOffset="0dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/Bottom_nav_menue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:background="@color/transparent_color"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="bottom"
+            app:menu="@menu/bottom_nav_menue"/>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_contact_support_24"
+        app:borderWidth="0dp"
+        android:elevation="4dp"
+        android:backgroundTint="#B8B8B8"
+        app:layout_anchor="@+id/bottomNavigationBar"
+        app:fabSize="auto"
+        android:contentDescription="@string/todo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
