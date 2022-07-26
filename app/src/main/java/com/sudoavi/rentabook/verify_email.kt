@@ -15,10 +15,6 @@ import kotlinx.android.synthetic.main.activity_verify_email.text_hint1
 class verify_email : AppCompatActivity() {
 
     var Usr_email = selectpass.user?.email.toString()
-
-
-
-
    private lateinit var firebaseAuth : FirebaseAuth
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

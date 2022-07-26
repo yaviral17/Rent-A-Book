@@ -14,4 +14,5 @@
     <color name="colorGradientEnd">#FF1493</color>
     <color name="Inner_layout">#25FFFFFF</color>
     <color name="nav_bar">#EEFF2E12</color>
+    <color name="transparent_color">#00170C0B</color>
 </resources>

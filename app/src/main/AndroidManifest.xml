@@ -14,6 +14,10 @@
         android:theme="@style/Theme.RentABook"
         tools:targetApi="31">
         <activity
+            android:name=".Forgot_pass"
+            android:exported="false"
+            android:theme="@style/Theme.Noaction_bar"/>
+        <activity
             android:name=".reset_password"
             android:exported="false" />
         <activity
@@ -27,7 +31,7 @@
         <activity
             android:name=".Home"
             android:exported="false"
-            android:theme="@style/Theme.Noaction_bar" />
+            android:theme="@style/Theme.forbottomnav" />
         <activity
             android:name=".name_dob"
             android:exported="false"

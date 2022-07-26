@@ -31,6 +31,10 @@ class LoginPage : AppCompatActivity() {
             startActivity(Intent(this,selectpass::class.java))
         }
 
+        forget_pass.setOnClickListener {
+            startActivity(Intent(this,Forgot_pass::class.java))
+        }
+
         eye_btn.setOnClickListener {
 
             if (hide){
@@ -55,7 +59,7 @@ class LoginPage : AppCompatActivity() {
 //                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                         user = FirebaseAuth.getInstance().currentUser
                         if (user!!.isEmailVerified){
-                            startActivity(Intent(this,Home::class.java))
+                            startActivity(Intent(this,Home::class.java).putExtra("email",Uemail))
                         }
                         else{
                             user!!.sendEmailVerification().addOnCompleteListener {

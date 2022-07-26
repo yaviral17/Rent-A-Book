@@ -8,9 +8,11 @@
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable-v24/edittext_background.xml" value="0.327" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable-v24/gradient_animation.xml" value="0.23" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable-v24/gradient_start.xml" value="0.23" />
+        <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable-v24/style_cardv_for_nav.xml" value="0.283" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable/background_theme.xml" value="0.2275" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/drawable/simple_round_btn.xml" value="0.2275" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout-v28/activity_name_dob.xml" value="0.22" />
+        <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_forgot_pass.xml" value="0.37083333333333335" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_home.xml" value="0.3567708333333333" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_login_page.xml" value="0.37083333333333335" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_main.xml" value="0.37083333333333335" />
@@ -20,6 +22,8 @@
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_sign_up.xml" value="0.37083333333333335" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_take_phone_no.xml" value="0.33" />
         <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/layout/activity_verify_email.xml" value="0.37083333333333335" />
+        <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/menu/bottom.xml" value="0.3697916666666667" />
+        <entry key="..\:/Myfuture/AndroidApps/RentABook/app/src/main/res/menu/bottom_nav_menue.xml" value="0.37083333333333335" />
       </map>
     </option>
   </component>
