@@ -3,14 +3,17 @@ package com.sudoavi.rentabook
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login_page.*
 
 
+@Suppress("DEPRECATION")
 class LoginPage : AppCompatActivity() {
     lateinit var Uemail : String
     lateinit var Upass : String
@@ -25,7 +28,11 @@ class LoginPage : AppCompatActivity() {
         animationDrawable.setExitFadeDuration(3000)
         animationDrawable.start()
 
-         var hide: Boolean = false
+        loading_login_pg.visibility = View.GONE
+        Login_failed_animation.visibility = View.GONE
+        login_success_animation.visibility = View.GONE
+        loading_status.visibility = View.GONE
+         var hide = false
 
         CrAc.setOnClickListener {
             startActivity(Intent(this,selectpass::class.java))
@@ -48,33 +55,79 @@ class LoginPage : AppCompatActivity() {
         }
 
         login_btn.setOnClickListener{
+            animation_lg.visibility = View.GONE
+            loading_login_pg.visibility = View.VISIBLE
+            loading_status.visibility = View.VISIBLE
             Upass = Usr_pass.text.toString().trim()
             Uemail = Usr_nm.text.toString().trim()
 
             if (check_values(Upass,Uemail)) {
-
                 auth = FirebaseAuth.getInstance()
                 auth.signInWithEmailAndPassword(Uemail, Upass)
                     .addOnSuccessListener {
 //                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                         user = FirebaseAuth.getInstance().currentUser
                         if (user!!.isEmailVerified){
-                            startActivity(Intent(this,Home::class.java).putExtra("email",Uemail))
+                            loading_login_pg.visibility = View.GONE
+                            loading_status.visibility = View.GONE
+                            login_success_animation.visibility = View.VISIBLE
+                            login_success_animation.playAnimation()
+                            Handler().postDelayed({
+                                login_success_animation.visibility = View.GONE
+                                animation_lg.visibility = View.VISIBLE
+                                startActivity(Intent(this,Home::class.java).putExtra("email",Uemail))
+                                finish()
+                            },2000)
+
                         }
                         else{
                             user!!.sendEmailVerification().addOnCompleteListener {
-                            Toast.makeText(this, "Verification mail sent to your mail", Toast.LENGTH_SHORT).show()
+                                loading_login_pg.visibility = View.GONE
+                                loading_status.visibility = View.GONE
+                                Login_failed_animation.visibility = View.VISIBLE
+                                Login_failed_animation.playAnimation()
+                                Toast.makeText(this, "Verification mail sent to your mail", Toast.LENGTH_SHORT).show()
+                                Handler().postDelayed({
+                                    Login_failed_animation.visibility = View.GONE
+                                    animation_lg.visibility = View.VISIBLE
+                                },2000)
+
                             }
                                 .addOnFailureListener {
-                                    Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show() }
+                                    loading_login_pg.visibility = View.GONE
+                                    loading_status.visibility = View.GONE
+                                    Login_failed_animation.visibility = View.VISIBLE
+                                    Login_failed_animation.playAnimation()
+                                    Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show()
+                                    Handler().postDelayed({
+                                        Login_failed_animation.visibility = View.GONE
+                                        animation_lg.visibility = View.VISIBLE
+                                    },2000)
+                                    }
                         }
                     }
                     .addOnFailureListener {
+                        loading_login_pg.visibility = View.GONE
+                        loading_status.visibility = View.GONE
+                        Login_failed_animation.visibility = View.VISIBLE
+                        Login_failed_animation.playAnimation()
                         Toast.makeText(this, "Some thing went wrong !!", Toast.LENGTH_SHORT).show()
+                        Handler().postDelayed({
+                            Login_failed_animation.visibility = View.GONE
+                            animation_lg.visibility = View.VISIBLE
+                        },2000)
                     }
             }
             else{
+                Login_failed_animation.visibility = View.VISIBLE
+                Login_failed_animation.playAnimation()
                 Toast.makeText(this, "Enter the values !!", Toast.LENGTH_SHORT).show()
+                Handler().postDelayed({
+                    Login_failed_animation.visibility = View.GONE
+                    loading_login_pg.visibility = View.GONE
+                    loading_status.visibility = View.GONE
+                    animation_lg.visibility = View.VISIBLE
+                },2000)
             }
 
         }
