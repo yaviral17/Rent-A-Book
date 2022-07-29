@@ -7,6 +7,7 @@ import android.os.Handler
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +23,10 @@ class LoginPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
+
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         val animationDrawable = Login_page_bg.background as AnimationDrawable
         animationDrawable.setEnterFadeDuration(10)
@@ -119,13 +124,13 @@ class LoginPage : AppCompatActivity() {
                     }
             }
             else{
+                loading_status.visibility = View.GONE
+                loading_login_pg.visibility = View.GONE
                 Login_failed_animation.visibility = View.VISIBLE
                 Login_failed_animation.playAnimation()
                 Toast.makeText(this, "Enter the values !!", Toast.LENGTH_SHORT).show()
                 Handler().postDelayed({
                     Login_failed_animation.visibility = View.GONE
-                    loading_login_pg.visibility = View.GONE
-                    loading_status.visibility = View.GONE
                     animation_lg.visibility = View.VISIBLE
                 },2000)
             }

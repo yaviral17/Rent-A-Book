@@ -12,7 +12,7 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_baseline_local_grocery_store_24"/>
 
-    <item android:id="@+id/temp"
+    <item android:id="@+id/RAB_Search"
         android:title="Search"
         app:showAsAction="always"
         android:icon="@drawable/ic_baseline_search_24"/>
